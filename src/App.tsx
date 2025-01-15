@@ -7,11 +7,11 @@ import { Navigation } from './components/Navigation';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="bg-gray-50 min-h-screen">
         <Navigation />
         <main className="pt-16">
           <Routes>
-            <Route path="/products" element={<ProductList />} />
+            <Route path="/create" element={<ProductList />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/create-product" element={<CreateProduct />} />
             <Route path="/" element={<Navigate to="/products" replace />} />

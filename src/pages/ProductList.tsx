@@ -15,8 +15,8 @@ export const ProductList = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-50">
-        <div className="w-12 h-12 rounded-full border-4 border-indigo-200 border-t-indigo-600 animate-spin"></div>
+      <div className="flex justify-center items-center bg-gray-50 min-h-screen">
+        <div className="border-4 border-indigo-200 border-t-indigo-600 rounded-full w-12 h-12 animate-spin"></div>
       </div>
     );
   }
@@ -29,17 +29,16 @@ export const ProductList = () => {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
+        <div className="flex sm:flex-row flex-col justify-between items-center gap-4 mb-8">
           <div className="flex items-center gap-4">
-            <h1 className="text-4xl font-bold text-gray-900">
+            <h1 className="font-bold text-4xl text-gray-900">
               Все продукты
             </h1>
             <button
-              onClick={() => navigate('/create')}
-              className="p-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 
-                       transition-all duration-300 flex items-center justify-center"
+              onClick={() => navigate('/create-product')}
+              className="flex justify-center items-center bg-indigo-500 hover:bg-indigo-600 p-2 rounded-lg text-white transition-all duration-300"
             >
               <FaPlus className="w-5 h-5" />
             </button>
@@ -62,15 +61,12 @@ export const ProductList = () => {
             placeholder="Поиск продуктов..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-6 py-4 pl-14 bg-white rounded-xl shadow-sm
-                     border border-gray-200 focus:border-indigo-300
-                     focus:ring-4 focus:ring-indigo-100 
-                     hover:border-gray-300 transition-all duration-200"
+            className="border-gray-200 hover:border-gray-300 focus:border-indigo-300 bg-white shadow-sm px-6 py-4 pl-14 border rounded-xl focus:ring-4 focus:ring-indigo-100 w-full transition-all duration-200"
           />
-          <FaSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <FaSearch className="top-1/2 left-5 absolute w-5 h-5 text-gray-400 -translate-y-1/2" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredProducts.map((product, index) => (
             <div 
               key={product.id}
@@ -90,9 +86,9 @@ export const ProductList = () => {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 animate-fade-in">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+          <div className="border-gray-100 bg-white shadow-sm py-16 border rounded-2xl text-center animate-fade-in">
+            <div className="mb-4 text-6xl">🔍</div>
+            <h3 className="mb-2 font-semibold text-2xl text-gray-800">
               {searchQuery 
                 ? 'Ничего не найдено' 
                 : filter === 'liked' 
