@@ -11,7 +11,7 @@ function App() {
         <Navigation />
         <main className="pt-16">
           <Routes>
-            <Route path="/create" element={<ProductList />} />
+            <Route path="/create" element={<CreateProduct />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/create-product" element={<CreateProduct />} />
             <Route path="/" element={<Navigate to="/products" replace />} />
